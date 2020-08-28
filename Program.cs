@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Drawing;
 
+//CODE FOR MICROSOFT ONLY
 
 //Need to decrompress hex codes, covert to bytes
 //foreach while if lines need to be sorted to only do consecutive numbers
