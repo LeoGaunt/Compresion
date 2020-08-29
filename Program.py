@@ -1,27 +1,11 @@
-import numpy
 from PIL import Image
 
-def getImage(imagePath):
-    #Get a numpy array of an image so that one can access values[x][y].
-    image = Image.open(imagePath, "r")
-    width, height = image.size
-    pixelValues = list(image.getdata())
-    if image.mode == "RGB":
-        channels = 3
-    elif image.mode == "L":
-        channels = 1
-    else:
-        print("Unknown mode: %s" % image.mode)
-        return None
-    pixelValues = numpy.array(pixelValues).reshape((width, height, channels))
-    return pixelValues
+im = Image.open('image2.jpg') 
+pix = im.load()
+width, height = im.size #sets sizes of x and y heights
+print (im.size)  # Get the width and hight of the image for iterating over
+print (pix[3,4])  # Get the RGBA Value of the a pixel of an image
 
-image = getImage("/Users/leogaunt/Documents/Programming/Compression/image2.JPG")
-
-print(image[0])
-print(image.shape)
-
-pixelFile = open("pixels.txt", "w")
-Record = (image[0])
-pixelFile.write(Record)
-pixelFile.close()
+for y in range (0,height):
+    for x in range (0,width):
+        print (pix[x,y])
